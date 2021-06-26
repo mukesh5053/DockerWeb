@@ -1,0 +1,24 @@
+﻿@model IEnumerable<SharedComp.WeatherForecast>
+
+<h1>Customer Details</h1>
+<table border="1">
+    <tr>
+        <th>Date</th>
+        <th>Summary</th>
+        <th>TemperatureC</th>
+        <th>TemperatureF</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Date</td>
+            <td>@item.Summary</td>
+            <td>@item.TemperatureC</td>
+            <td>@item.TemperatureF</td>
+
+        </tr>
+    }
+
+
+</table>

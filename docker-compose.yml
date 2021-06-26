@@ -1,0 +1,27 @@
+version: "3.9"  # optional since v1.27.0
+
+services:
+  mainmvcapp:
+    build: 
+      context: ./ 
+      dockerfile: ./DockerWebApp/Dockerfile
+    ports: 
+      - "3333:80"
+    networks: 
+      - demo-mynetwork
+    environment: 
+      ASPNETCORE_ENVIRONMENT: "Development"
+  dockerwebapi: 
+    build: 
+      context: ./
+      dockerfile: ./DockerWebAPI/Dockerfile
+    ports: 
+      - "3336:80"
+    networks: 
+      - demo-mynetwork
+    environment: 
+      ASPNETCORE_ENVIRONMENT: "Development"
+
+networks: 
+    demo-mynetwork:
+        driver: nat
